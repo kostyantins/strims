@@ -14,13 +14,12 @@ public class Serialization {
             employee.setSSN(11122333);
             employee.setNumber(101);
 
-            try {
-                FileOutputStream fileOut = new FileOutputStream("eleks_academy_java/serialization_deserialization/employee.ser");
+            try (FileOutputStream fileOut = new FileOutputStream("src/eleks_academy_java/serialization_deserialization_object/employee.ser")) {
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 out.writeObject(employee);
                 out.close();
                 fileOut.close();
-                System.out.printf("Serialized data is saved in src/eleks_academy_java_01/serialization_deserialization/employee.ser");
+                System.out.printf("Serialized data is saved in src/eleks_academy_java/serialization_deserialization_object/employee.ser");
             } catch (IOException i) {
                 i.printStackTrace();
             }

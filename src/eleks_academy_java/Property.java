@@ -16,6 +16,8 @@ public class Property {
         properties = new Properties();
         FileOutputStream fileOutputStream = new FileOutputStream("config.properties");
         properties.store(fileOutputStream, "Numbers configuration"); //add just comment
+
+        fileOutputStream.close();
     }
 
     @Test
@@ -26,6 +28,8 @@ public class Property {
         properties.setProperty("three", "3");
         FileOutputStream fileOutputStream = new FileOutputStream("config.properties");
         properties.store(fileOutputStream, "Numbers configuration");
+
+        fileOutputStream.close();
     }
 
     @Test
@@ -36,5 +40,7 @@ public class Property {
 
         System.out.println(properties.getProperty("two", "Property by current key is not found"));
         System.out.println(properties.getProperty("", "Property by current key is not found"));
+
+        fileInputStream.close();
     }
 }

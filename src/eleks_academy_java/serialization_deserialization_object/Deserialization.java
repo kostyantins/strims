@@ -9,12 +9,12 @@ public class Deserialization {
     public static void main(String [] args) {
 
         Employee employee = null;
-        try {
-            FileInputStream fileIn = new FileInputStream("/eleks_academy_java/serialization_deserialization/employee.ser");
+        try(FileInputStream fileIn = new FileInputStream("src/eleks_academy_java/serialization_deserialization_object/employee.ser")) {
             ObjectInputStream in = new ObjectInputStream(fileIn);
             employee = (Employee) in.readObject();
             in.close();
             fileIn.close();
+            System.out.printf("Deserialize data is saved in src/eleks_academy_java/serialization_deserialization_object/employee.ser");
         } catch (IOException i) {
             i.printStackTrace();
             return;

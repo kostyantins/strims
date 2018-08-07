@@ -6,8 +6,6 @@ import java.io.*;
 
 public class IOStreams {
 
-
-
     @Test
     public void fileInputOutputStream() throws IOException {
         FileInputStream in = null;
@@ -33,9 +31,11 @@ public class IOStreams {
         }
     }
 
-
     @Test
     public void getDataInputStream() throws IOException {
+
+        BufferedInputStream bufferedInputStream;
+
         // Reading data from the same file
         DataInputStream dataIn = new DataInputStream(new FileInputStream("src/input.txt"));
 
@@ -45,20 +45,39 @@ public class IOStreams {
         }
     }
 
-    public static void main(String args[]) throws IOException {
-            // Writing string to a file encoded as modified UTF-8
-            try(DataOutputStream dataOut = new DataOutputStream(new FileOutputStream("src/file.txt"))) {
-                dataOut.writeUTF("hello dude !!");
+    @Test
+    public void write_read_string() throws IOException {
+        // Writing string to a file encoded as modified UTF-8
+        try (DataOutputStream dataOut = new DataOutputStream(new FileOutputStream("src/file.txt"))) {
+            dataOut.write(10);
 
-                // Reading data from the same file
-                DataInputStream dataIn = new DataInputStream(new FileInputStream("src/file.txt"));
 
-                while (dataIn.available() > 0) {
-                    String k = dataIn.readUTF();
-                    System.out.print(k + " ");
-                }
+            // Reading data from the same file
+            DataInputStream dataIn = new DataInputStream(new FileInputStream("src/file.txt"));
+
+            while (dataIn.available() > 0) {
+                int k = dataIn.read();
+                System.out.print(k + " ");
             }
         }
     }
+
+    @Test
+    public void write_read_numbers() throws IOException {
+        // Writing string to a file encoded as modified UTF-8
+        try (DataOutputStream dataOut = new DataOutputStream(new FileOutputStream("src/file.txt"))) {
+            dataOut.write(10);
+
+
+            // Reading data from the same file
+            DataInputStream dataIn = new DataInputStream(new FileInputStream("src/file.txt"));
+
+            while (dataIn.available() > 0) {
+                int k = dataIn.read();
+                System.out.print(k + " ");
+            }
+        }
+    }
+}
 
 
