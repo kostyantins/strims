@@ -26,10 +26,14 @@ public class JavaDate {
         } else System.out.println(current);
 
         final boolean leap = date.isLeapYear();
+        final boolean leap_ = date.isAfter(date);
         System.out.println(leap);
+        System.out.println(leap_);
 
         final int monthLen = date.lengthOfMonth();
+        final int yearLen = date.lengthOfYear();
         System.out.println(monthLen);
+        System.out.println(yearLen);
     }
 
     @Test
@@ -83,5 +87,13 @@ public class JavaDate {
         System.out.println(duration);
 //
 //        LocalDateTime dt =
+    }
+
+    @Test
+    public void timeDuration_() {
+        LocalDate current = LocalDate.now();
+        LocalDate date = LocalDate.of(2013, Month.SEPTEMBER, 12);
+        int monthLen = date.lengthOfMonth();
+
     }
 }
