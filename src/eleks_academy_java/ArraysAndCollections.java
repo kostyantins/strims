@@ -93,7 +93,7 @@ public class ArraysAndCollections {
     }
 
     @Test
-    public void array(){
+    public void array() {
 
         int[] numbers = new int[3];
 
@@ -104,6 +104,26 @@ public class ArraysAndCollections {
         List list = Arrays.asList(numbers);
 
         System.out.println(list.size());
+
+
+    }
+
+
+    @Test
+    public void arraySet() {
+
+        Set<Integer> numbersSet = new HashSet();
+
+        numbersSet.add(2);
+        numbersSet.add(5);
+        numbersSet.add(10);
+
+        //1 variant
+        numbersSet.forEach(System.out::println);
+        //2variant
+        for (Integer iterator : numbersSet){
+            System.out.println(iterator);
+        }
 
 
     }

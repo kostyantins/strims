@@ -18,7 +18,7 @@ public class StaticInitialization {
         }
 
         public static void main(String... argv) {
-            
+
             System.out.println(StaticInitialization.instance.x);
 
             System.out.println(countNumbers());
